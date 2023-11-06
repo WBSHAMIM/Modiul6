@@ -1,0 +1,32 @@
+Tasks: 1
+
+SELECT customers.customer_ID, name, customers.email, customers.location, orders.order_date, orders.total_orders
+FROM customers
+JOIN orders on customers.customer_ID = orders.customer_ID
+
+
+Tasks: 2
+
+SELECT orders.order_ID, products.name, order_items.quantity, orders.total_amount FROM orders
+JOIN order_items ON orders.order_ID = order_items.order_ID
+JOIN products ON products.product_ID = order_items.order_ID
+ORDER BY orders.order_ID
+
+
+Tasks: 3
+
+SELECT categories.name, categories.category_ID
+  FROM categories
+  JOIN order_items ON categories.category_ID = order_items.category_ID
+  GROUP BY categories.name, categories.category_ID
+  ORDER BY categories.category_ID DESC
+
+
+Tasks: 4
+
+SELECT customers.name, orders.total_amount
+FROM customers
+JOIN orders ON customers.customer_ID = orders.customer_ID
+GROUP BY customers.name, orders.total_amount
+ORDER BY orders.total_amount DESC LIMIT 5
+
